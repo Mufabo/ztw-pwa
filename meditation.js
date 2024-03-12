@@ -6,7 +6,7 @@ function meditate() {
         lastSideClicked = null; // reset
         // left side was clicked correctly
         console.log("left correct");
-        if (counter < settings.dtn) {
+        if (counter < ztwSettings.dtn) {
           // single tap expected
           counter++; // increase the counter to dtn
           nextSideLeft = false; // next tap is expected on the right side
@@ -37,7 +37,7 @@ function meditate() {
         // right side was clicked correctly
         console.log("right correct");
         lastSideClicked = null;
-        if (counter < settings.dtn) {
+        if (counter < ztwSettings.dtn) {
           // single tap expected
           counter++;
           nextSideLeft = true;

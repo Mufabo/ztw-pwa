@@ -4,22 +4,26 @@ let timePassed = 0;
 let timerIsRunning = false;
 let paused = false;
 
-var errorSound = new Audio('error.wav');
+var errorSound = new Audio("error.wav");
 
-let internalTime = 0
+let internalTime = 0;
 
-let nextSideLeft = false // false=right, true=left. Determines which Side is to be clicked next
-let counter = 1
-let double_counter = false
+let nextSideLeft = false; // false=right, true=left. Determines which Side is to be clicked next
+let counter = 1;
+let double_counter = false;
 let lastSideClicked = null;
+let ztwSettings = JSON.parse(localStorage.getItem("ztwSettings"))
 
-settings = {
-    "time_limit": 20,
-    "dtn": 5,
-    "time_to_timeout": 30
-}
-let timeLeft = settings.time_limit;
+if (ztwSettings === null) {
+  ztwSettings = {
+    time_limit: 20,
+    dtn: 5,
+    time_to_timeout: 11,
+  };
 
-localStorage.setItem("ztwSettings", JSON.stringify(settings));
+  localStorage.setItem("ztwSettings", JSON.stringify(ztwSettings));
+} 
 
-time_to_timeout = settings.time_to_timeout
+let timeLeft = ztwSettings.time_limit;
+
+time_to_timeout = ztwSettings.time_to_timeout;

@@ -2,7 +2,7 @@
 // and subtract from the TIME_LIMIT
 
 var timer = document.getElementById("timer");
-timer.innerText = `Start/Pause: ${settings.time_limit}`;
+timer.innerText = `Start/Pause: ${ztwSettings.time_limit}`;
 
 function formatTime(time) {
   // The largest round integer less than or equal to the result of time divided being by 60.
@@ -27,7 +27,7 @@ function startTimer() {
     timerInterval = setInterval(() => {
       if (!paused) {
         timePassed = timePassed += 1;
-        timeLeft = settings.time_limit - timePassed;
+        timeLeft = ztwSettings.time_limit - timePassed;
         timer.innerHTML = formatTime(timeLeft);
       }
 
@@ -35,7 +35,7 @@ function startTimer() {
         clearInterval(timerInterval);
         timerIsRunning = false;
         timePassed = 0;
-        timer.innerText = `Start: ${settings.time_limit}`;
+        timer.innerText = `Start: ${ztwSettings.time_limit}`;
       }
     }, 1000);
 
@@ -45,7 +45,7 @@ function startTimer() {
     internalTimer = setInterval(() => {
       if (!paused) {
         internalTime = internalTime += 1;
-        internalTimeLeft = settings.time_to_timeout - internalTime;
+        internalTimeLeft = ztwSettings.time_to_timeout - internalTime;
       }
       if (internalTimeLeft == 0) {
         internalTime = 0;
