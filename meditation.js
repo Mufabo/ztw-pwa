@@ -30,6 +30,7 @@ function meditate() {
         console.log("error. You clicked right instead of left");
         counter = 1;
         lastSideClicked = null;
+        errorSound.play()
       }
     } else {
       // next side to be clicked is right
@@ -55,6 +56,7 @@ function meditate() {
         console.log("error. You clicked left instead of right");
         counter = 1;
         lastSideClicked = null;
+        errorSound.play()
       }
     }
   }

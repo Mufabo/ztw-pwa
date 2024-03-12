@@ -5,6 +5,7 @@ let timerIsRunning = false;
 let paused = false;
 
 var errorSound = new Audio("error.wav");
+var endSound = new Audio("tib.wav")
 
 let internalTime = 0;
 
@@ -16,9 +17,9 @@ let ztwSettings = JSON.parse(localStorage.getItem("ztwSettings"))
 
 if (ztwSettings === null) {
   ztwSettings = {
-    time_limit: 20,
+    time_limit: 480,
     dtn: 5,
-    time_to_timeout: 11,
+    time_to_timeout: 30,
   };
 
   localStorage.setItem("ztwSettings", JSON.stringify(ztwSettings));
@@ -27,3 +28,5 @@ if (ztwSettings === null) {
 let timeLeft = ztwSettings.time_limit;
 
 time_to_timeout = ztwSettings.time_to_timeout;
+
+

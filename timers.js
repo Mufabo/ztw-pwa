@@ -36,6 +36,7 @@ function startTimer() {
         timerIsRunning = false;
         timePassed = 0;
         timer.innerText = `Start: ${ztwSettings.time_limit}`;
+        endSound.play()
       }
     }, 1000);
 
@@ -49,6 +50,7 @@ function startTimer() {
       }
       if (internalTimeLeft == 0) {
         internalTime = 0;
+        errorSound.play()
         alert("FOCUS")
       }
       if(!timerIsRunning){
