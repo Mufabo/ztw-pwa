@@ -17,7 +17,7 @@ let ztwSettings = JSON.parse(localStorage.getItem("ztwSettings"))
 
 if (ztwSettings === null) {
   ztwSettings = {
-    time_limit: 480,
+    time_limit: 240,
     dtn: 5,
     time_to_timeout: 30,
   };

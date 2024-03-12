@@ -26,12 +26,12 @@
             id="timer"
             onclick="startTimer()"
           ></button>
-          <button
+          <!-- <button
             class="btn btn-primary"
             onclick="() => {paused = !paused; console.log('Pause: ', paused)}"
           >
             Pause/Unpause
-          </button>
+          </button> -->
           <button class="btn btn-primary" onclick="showContent('settings')">Settings</button>
         </div>
       </div>
@@ -68,7 +68,12 @@
           Time
         </div>
         <div class="col-6">
-          <input type="text" id="time_limit"  >
+          <input type="text" id="time_limit" onchange="(() => {
+            ztwSettings.time_limit = document.getElementById('time_limit').getAttribute('value');
+            console.log(document.getElementById('time_limit').getAttribute('value'))
+            localStorage.setItem('ztwSettings', JSON.stringify(ztwSettings));
+          }
+            )()" >
         </div>
       </div>
       <div class="row">
@@ -76,15 +81,23 @@
           Time Out
         </div>
         <div class="col-6">
-          <input type="text" id="time_to_timeout" >
+          <input type="text" id="time_to_timeout" onchange="(() => {
+            ztwSettings.time_to_timeout = document.getElementById('time_to_timeout').getAttribute('value');
+            localStorage.setItem('ztwSettings', JSON.stringify(ztwSettings));
+          }
+            )()">
         </div>
       </div>
       <div class="row">
-        <div class="col-6 col-6">
+        <div class="col-6 ">
           Double Tap Number
         </div>
         <div class="col-6">
-          <input type="text" id="dtn" >
+          <input type="text" id="dtn" onchange="(() => {
+            ztwSettings.dtn = document.getElementById('dtn').getAttribute('value');
+            localStorage.setItem('ztwSettings', JSON.stringify(ztwSettings));
+          }
+            )()">
         </div>
       </div>
     </div>
