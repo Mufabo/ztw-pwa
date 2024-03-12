@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+
+    <script src="data.js"></script>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="row">
+        <div id="menu" class="btn-group-vertical" role="group">
+          <button class="btn btn-primary" onclick="showContent('meditation')">
+            Meditation
+          </button>
+          <button class="btn btn-primary">Settings</button>
+        </div>
+      </div>
+
+      <div id="settings" class="row" style="display: none">Settings</div>
+    </div>
+
+    <div id="meditation" style="display: none; height: 100vh">
+      <div class="row">
+        <div class="btn-group" role="group">
+          <button class="btn btn-primary" onclick="showContent('menu')">
+            Menu
+          </button>
+          <button
+            class="btn btn-primary"
+            id="timer"
+            onclick="startTimer()"
+          ></button>
+          <button
+            class="btn btn-primary"
+            onclick="() => {paused = !paused; console.log('Pause: ', paused)}"
+          >
+            Pause/Unpause
+          </button>
+          <button class="btn btn-primary">Settings</button>
+        </div>
+      </div>
+      <div class="row h-100">
+        <div class="btn-group">
+          <button
+            style="width: 50%"
+            id="left"
+            onclick="(()=>{lastSideClicked='left' ; internalTime = 0; meditate();})()"
+          >
+            Left
+          </button>
+          <button
+            style="width: 50%"
+            id="right"
+            onclick="(()=>{lastSideClicked='right' ; internalTime = 0; meditate();})()"
+          >
+            right
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="view.js"></script>
+    <script src="timers.js"></script>
+    <script src="scripts.js"></script>
+    <script src="meditation.js"></script>
+  </body>
+</html>
