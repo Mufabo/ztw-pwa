@@ -1,6 +1,5 @@
 // Start with an initial value of 20 seconds
 let timePassed = 0;
-
 let timerIsRunning = false;
 let paused = false;
 
@@ -25,8 +24,6 @@ if (ztwSettings === null) {
   localStorage.setItem("ztwSettings", JSON.stringify(ztwSettings));
 } 
 
-let timeLeft = ztwSettings.time_limit;
 
-time_to_timeout = ztwSettings.time_to_timeout;
 
 
