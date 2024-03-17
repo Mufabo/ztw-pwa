@@ -1,6 +1,5 @@
 // Start with an initial value of 20 seconds
 let timePassed = 0;
-
 let timerIsRunning = false;
 let paused = false;
 
@@ -13,6 +12,7 @@ let nextSideLeft = false; // false=right, true=left. Determines which Side is to
 let counter = 1;
 let double_counter = false;
 let lastSideClicked = null;
+
 let ztwSettings = JSON.parse(localStorage.getItem("ztwSettings"))
 
 if (ztwSettings === null) {
@@ -25,8 +25,6 @@ if (ztwSettings === null) {
   localStorage.setItem("ztwSettings", JSON.stringify(ztwSettings));
 } 
 
-let timeLeft = ztwSettings.time_limit;
 
-time_to_timeout = ztwSettings.time_to_timeout;
 
 

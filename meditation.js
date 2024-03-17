@@ -43,9 +43,10 @@ function meditate() {
           counter++;
           nextSideLeft = true;
         } else {
-          console.log("double!!!")
+          
           if (!double_counter) {
             double_counter = true;
+            console.log("double!!!")
           } else {
             counter = 1;
             double_counter = false;

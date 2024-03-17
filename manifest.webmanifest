@@ -1,0 +1,22 @@
+{
+    "name": "Zentrainingwheel PWA",
+    "short_name": "ZTW_PWA",
+
+    "description": "Training wheels for meditation",
+
+    "scope": "/ztw-pwa/",
+    "start_url": "/ztw-pwa/",
+   
+    "background_color": "#ffffff",
+    "theme_color": "#ffffff",
+   
+    "display": "standalone", 
+   
+    "icons": [
+        {
+          "src": "/ztw-pwa/logo.png",
+          "type": "image/png",
+          "sizes": "512x512"
+        }
+    ]
+  }
