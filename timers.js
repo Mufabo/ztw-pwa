@@ -1,8 +1,6 @@
 // Initially, no time has passed, but this will count up
 // and subtract from the TIME_LIMIT
 
-var timer = document.getElementById("timer");
-timer.innerText = `Start/Pause: ${ztwSettings.time_limit}`;
 
 function formatTime(time) {
   // The largest round integer less than or equal to the result of time divided being by 60.
@@ -40,8 +38,6 @@ function startTimer() {
       }
     }, 1000);
 
-    //meditationInterval = setInterval(meditate, 500);
-
     // timer for time out
     internalTimer = setInterval(() => {
       if (!paused) {
@@ -60,4 +56,14 @@ function startTimer() {
   }
 }
 
+function pause(){
+  paused = !paused
+}
+
+function stopTimer(){
+  clearInterval(timerInterval);
+  timerIsRunning = false;
+  timePassed = 0;
+  timer.innerText = `Start: ${ztwSettings.time_limit}`;
+}
 // TODO pause timer, stop timer, inner timer

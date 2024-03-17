@@ -15,10 +15,19 @@
     />
 
     <script src="data.js"></script>
-    <link rel="icon" type="image/x-icon" href="logo.png">
+    <link rel="icon" type="image/x-icon" href="logo.png" />
+    <link rel="canonical" href="https://mufabo.github.io/ztw-pwa/" />
+    <link rel="manifest" href="/ztw-pwa/manifest.webmanifest" />
   </head>
 
-  <body> 
+  <body>
+    <script>
+      if (navigator.serviceWorker) {
+        navigator.serviceWorker.register("/ztw-pwa/sw.js", {
+          scope: "/ztw-pwa/",
+        });
+      }
+    </script>
     <div id="meditation" style="height: 100vh">
       <div class="row">
         <div class="btn-group" role="group">
@@ -27,13 +36,22 @@
             id="timer"
             onclick="startTimer()"
           ></button>
-          <!-- <button
+          <button class="btn btn-primary" onclick="stopTimer()">Stop</button>
+          <button
             class="btn btn-primary"
-            onclick="() => {paused = !paused; console.log('Pause: ', paused)}"
+            onclick="(() => {paused = !paused; console.log('Pause: ', paused)})()"
           >
             Pause/Unpause
-          </button> -->
-          <button class="btn btn-primary" onclick="showContent('settings')">Settings</button>
+          </button>
+          <button
+            class="btn btn-primary"
+            onclick="(() => {onLoadOfSettings(); showContent('settings')})()"
+          >
+            Settings
+          </button>
+          <button class="btn btn-primary" onclick="showContent('instructions')">
+            Instructions
+          </button>
         </div>
       </div>
       <div class="row h-100">
@@ -56,51 +74,73 @@
       </div>
     </div>
 
-    <div class="container" id="settings" style="display: none;">
+    <div class="container" id="settings" style="display: none">
       <div class="row">
         <div class="btn-group" role="group">
-          <button class="btn btn-primary" onclick="showContent('meditation')">meditation</button>
+          <button
+            class="btn btn-primary"
+            onclick="(() => {
+            localStorage.setItem('ztwSettings', JSON.stringify(ztwSettings));
+            showContent('meditation')}
+            )()"
+          >
+            meditation
+          </button>
         </div>
       </div>
-
+      <div class="row">
+        <div class="col-6">Time</div>
+        <div class="col-6">
+          <input
+            type="text"
+            id="time_limit"
+            onchange="(() => {
+            ztwSettings['time_limit'] = parseInt(this.value)
+            document.getElementById('timer').innerText = `Start: ${ztwSettings.time_limit}`   
+          })()"
+          />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6 col-6">Time Out</div>
+        <div class="col-6">
+          <input
+            type="text"
+            id="time_to_timeout"
+            onchange="(() => {
+            ztwSettings['time_to_timeout'] = parseInt(this.value)
+          })()"
+          />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6">Double Tap Number</div>
+        <div class="col-6">
+          <input
+            type="text"
+            id="dtn"
+            onchange="(() => {
+            ztwSettings['dtn'] = parseInt(this.value)
+          })()"
+          />
+        </div>
+      </div>
     </div>
+
+    <div class="container" id="instructions" style="display: none">
       <div class="row">
-        <div class="col-6">
-          Time
-        </div>
-        <div class="col-6">
-          <input type="text" id="time_limit" onchange="(() => {
-            ztwSettings.time_limit = document.getElementById('time_limit').getAttribute('value');
-            console.log(document.getElementById('time_limit').getAttribute('value'))
-            localStorage.setItem('ztwSettings', JSON.stringify(ztwSettings));
-          }
-            )()" >
+        <div class="btn-group" role="group">
+          <button
+            class="btn btn-primary"
+            onclick="(() => {
+            showContent('meditation')}
+            )()"
+          >
+            meditation
+          </button>
         </div>
       </div>
-      <div class="row">
-        <div class="col-6 col-6">
-          Time Out
-        </div>
-        <div class="col-6">
-          <input type="text" id="time_to_timeout" onchange="(() => {
-            ztwSettings.time_to_timeout = document.getElementById('time_to_timeout').getAttribute('value');
-            localStorage.setItem('ztwSettings', JSON.stringify(ztwSettings));
-          }
-            )()">
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-6 ">
-          Double Tap Number
-        </div>
-        <div class="col-6">
-          <input type="text" id="dtn" onchange="(() => {
-            ztwSettings.dtn = document.getElementById('dtn').getAttribute('value');
-            localStorage.setItem('ztwSettings', JSON.stringify(ztwSettings));
-          }
-            )()">
-        </div>
-      </div>
+      <div class="row" id="manual"></div>
     </div>
 
     <script src="view.js"></script>
