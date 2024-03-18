@@ -27,7 +27,9 @@ Hit start and , if you want to, close your eyes.
 
 Observe your breath.
 
-After each completed breath, tap the screen on one site. The starting site is on the right. Then after the next breath tap the other site.
+After each completed breath, tap the screen on one site or press the f key for left and the j key for right. 
+The starting site is on the right. 
+Then after the next breath tap the other site.
 
 At every DTN-th breath, do a double tap. DTN stands for double tap number. The default for DTN is 5.
 
