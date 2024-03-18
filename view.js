@@ -21,7 +21,6 @@ timer.innerText = `Start: ${ztwSettings.time_limit}`;
 
 document.getElementById("manual").innerText = `
 Before starting, take a comfortable position.
-I recommend holding your device in landscape mode like a gamepad.
 
 Hit start and , if you want to, close your eyes.
 
