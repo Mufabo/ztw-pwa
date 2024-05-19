@@ -28,6 +28,7 @@ function meditate() {
       } else {
         // Left side was supposed to be clicked
         console.log("error. You clicked right instead of left");
+        navigator.vibrate(200)
         counter = 1;
         lastSideClicked = null;
         errorSound.play()
@@ -55,6 +56,7 @@ function meditate() {
         }
       } else {
         console.log("error. You clicked left instead of right");
+        navigator.vibrate(200)
         counter = 1;
         lastSideClicked = null;
         errorSound.play()
