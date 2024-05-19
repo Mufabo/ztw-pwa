@@ -9,6 +9,8 @@
       crossorigin="anonymous"
     />
 
+    <link rel="stylesheet" href="style.css"/>
+
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, user-scalable=no"
@@ -32,24 +34,24 @@
       <div class="row">
         <div class="btn-group" role="group">
           <button
-            class="btn btn-primary"
+            class="btn button btn-primary"
             id="timer"
             onclick="startTimer()"
           ></button>
-          <button class="btn btn-primary" onclick="stopTimer()">Stop</button>
+          <button class="btn btn-primary button" onclick="stopTimer()">Stop</button>
           <button
-            class="btn btn-primary"
+            class="btn btn-primary button"
             onclick="(() => {paused = !paused; console.log('Pause: ', paused)})()"
           >
             Pause/Unpause
           </button>
           <button
-            class="btn btn-primary"
+            class="btn btn-primary button"
             onclick="(() => {onLoadOfSettings(); showContent('settings')})()"
           >
             Settings
           </button>
-          <button class="btn btn-primary" onclick="showContent('instructions')">
+          <button class="btn btn-primary button" onclick="showContent('instructions')">
             Instructions
           </button>
         </div>
@@ -57,14 +59,16 @@
       <div class="row h-100">
         <div class="btn-group">
           <button
-            style="width: 50%"
+            class="button"
+            style="width: 50%;"
             id="left"
             onclick="(()=>{lastSideClicked='left' ; internalTime = 0; meditate();})()"
           >
             Left
           </button>
           <button
-            style="width: 50%"
+            class="button"
+            style="width: 50%;"
             id="right"
             onclick="(()=>{lastSideClicked='right' ; internalTime = 0; meditate();})()"
           >
