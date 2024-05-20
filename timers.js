@@ -19,6 +19,8 @@ function formatTime(time) {
 }
 
 function startTimer() {
+  console.log("Start")
+  console.log(ztwSettings)
   if (!timerIsRunning) {
     timerIsRunning = true;
 
@@ -34,6 +36,10 @@ function startTimer() {
         timerIsRunning = false;
         timePassed = 0;
         timer.innerText = `Start: ${ztwSettings.time_limit}`;
+        nextSideLeft = false; // false=right, true=left. Determines which Side is to be clicked next
+        counter = 1;
+        double_counter = false;
+        lastSideClicked = null;
         endSound.play()
       }
     }, 1000);
@@ -47,6 +53,9 @@ function startTimer() {
       if (internalTimeLeft == 0) {
         internalTime = 0;
         errorSound.play()
+        counter = 1
+        double_counter = false;
+        console.log("next side: " + nextSideLeft ? "left" : "right")
         alert("FOCUS")
       }
       if(!timerIsRunning){
