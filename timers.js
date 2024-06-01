@@ -74,5 +74,6 @@ function stopTimer(){
   timerIsRunning = false;
   timePassed = 0;
   timer.innerText = `Start: ${ztwSettings.time_limit}`;
+  nextSideLeft = false
 }
 // TODO pause timer, stop timer, inner timer

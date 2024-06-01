@@ -13,6 +13,7 @@ let counter = 1;
 let double_counter = false;
 let lastSideClicked = null;
 
+
 let ztwSettings = JSON.parse(localStorage.getItem("ztwSettings"))
 
 if (ztwSettings === null) {
@@ -20,10 +21,13 @@ if (ztwSettings === null) {
     time_limit: 240,
     dtn: 5,
     time_to_timeout: 30,
+    cascade: 5,
   };
 
   localStorage.setItem("ztwSettings", JSON.stringify(ztwSettings));
 } 
+
+let currentDTN = ztwSettings.dtn;
 
 
 

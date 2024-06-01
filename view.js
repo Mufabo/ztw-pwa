@@ -14,6 +14,7 @@ function onLoadOfSettings() {
     .getElementById("time_to_timeout")
     .setAttribute("value", ztwSettings.time_to_timeout);
   document.getElementById("dtn").setAttribute("value", ztwSettings.dtn);
+  document.getElementById("cascade").setAttribute("value", ztwSettings.cascade);
 }
 
 var timer = document.getElementById("timer");

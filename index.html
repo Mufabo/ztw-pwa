@@ -22,7 +22,7 @@
     <link rel="manifest" href="/ztw-pwa/manifest.webmanifest" />
   </head>
 
-  <body style="background-color: black">
+  <body style="background-color: black; ">
     <script>
       if (navigator.serviceWorker) {
         navigator.serviceWorker.register("/ztw-pwa/sw.js", {
@@ -126,6 +126,18 @@
             id="dtn"
             onchange="(() => {
             ztwSettings['dtn'] = parseInt(this.value)
+          })()"
+          />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6">Cascade</div>
+        <div class="col-6">
+          <input
+            type="text"
+            id="cascade"
+            onchange="(() => {
+            ztwSettings['cascade'] = parseInt(this.value)
           })()"
           />
         </div>
