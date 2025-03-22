@@ -1,6 +1,6 @@
 function meditate() {
   if (timerIsRunning) {
-    
+
     if (nextSideLeft) {
       // the next side to be clicked is left
       if (lastSideClicked == "left") {
@@ -25,7 +25,7 @@ function meditate() {
 
 const misclicked = (message) => {
   console.log(message);
-  navigator.vibrate(200);
+  if(canVibrate) navigator.vibrate(200);
   currentDTN = ztwSettings.dtn;
   counter = 1;
   lastSideClicked = null;

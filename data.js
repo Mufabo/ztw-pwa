@@ -12,7 +12,7 @@ let nextSideLeft = false; // false=right, true=left. Determines which Side is to
 let counter = 1;
 let double_counter = false;
 let lastSideClicked = null;
-
+const canVibrate = window.navigator.vibrate
 
 let ztwSettings = JSON.parse(localStorage.getItem("ztwSettings"))
 
@@ -25,7 +25,7 @@ if (ztwSettings === null) {
   };
 
   localStorage.setItem("ztwSettings", JSON.stringify(ztwSettings));
-} 
+}
 
 let currentDTN = ztwSettings.dtn;
 

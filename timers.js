@@ -52,6 +52,7 @@ function startTimer() {
       }
       if (internalTimeLeft == 0) {
         internalTime = 0;
+        if(canVibrate) navigator.vibrate(200);
         errorSound.play()
         counter = 1
         double_counter = false;
