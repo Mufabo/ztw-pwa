@@ -30,7 +30,7 @@
         });
       }
     </script>
-    <div id="meditation" style="height: 100vh">
+    <div class="container-fluid" id="meditation" style="height: 100vh">
       <div class="row">
         <div class="btn-group" role="group">
           <button
@@ -78,7 +78,7 @@
       </div>
     </div>
 
-    <div class="container" id="settings" style="display: none">
+    <div class="container-fluid" id="settings" style="display: none">
       <div class="row">
         <div class="btn-group" role="group">
           <button
@@ -101,7 +101,7 @@
             id="time_limit"
             onchange="(() => {
             ztwSettings['time_limit'] = parseInt(this.value)
-            document.getElementById('timer').innerText = `Start: ${ztwSettings.time_limit}`   
+            document.getElementById('timer').innerText = `Start: ${ztwSettings.time_limit}`
           })()"
           />
         </div>
@@ -144,7 +144,7 @@
       </div>
     </div>
 
-    <div class="container" id="instructions" style="display: none">
+    <div class="container-fluid" id="instructions" style="display: none">
       <div class="row">
         <div class="btn-group" role="group">
           <button
